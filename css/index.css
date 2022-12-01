@@ -1,0 +1,9 @@
+h1{
+    text-transform: uppercase;
+    font-weight: bold;
+}
+label{
+    text-transform: capitalize;
+    font-weight: bold;
+    display: block;
+}
