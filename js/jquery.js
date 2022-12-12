@@ -39,6 +39,50 @@ function contrasena(){
         inp_contrasena.style.border = "2px solid red"
     }
 }
+
+
+$("#inp_correo").change(function(){
+    let correoCorrect = correoCorrecto(inp_correo.value || "")
+    if(correoCorrect){
+        parrafo_alerta_correo.innerText = ""
+        inp_correo.style.border = ""
+        
+    }else{
+        parrafo_alerta_correo.innerText = "debes de escribir un correo valido"
+        inp_correo.style.border = "2px solid red"
+    }
+})
+
+$("#inp_celular").change(function(){
+    let celularCorrect = celularCorrecto(inp_celular.value || "")
+    if(celularCorrect){
+        parrafo_alerta_celular.innerText = ""
+        inp_celular.style.border = ""
+        
+    }else{
+        parrafo_alerta_celular.innerText = "ejemplo de un celular valido (51)123-123-123"
+        inp_celular.style.border = "2px solid red"
+    }
+})
+
+function celularCorrecto(telefono){
+    let exreg = /^\([0-9]{2}\)[0-9]{3}-[0-9]{3}-[0-9]{3}$/
+    if(exreg.test(telefono)){
+        return true
+    }else{
+        return false
+    }
+}
+
+function correoCorrecto(correo=""){
+    let exreg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+    if(exreg.test(correo)){
+        return true
+    }else{
+        return false
+    }
+}
+
 function contrasenas_iguales(contrasena_1,contrasena_2){
     if(contrasena_1 == contrasena_2){
         return true
